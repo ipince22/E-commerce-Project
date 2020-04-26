@@ -11,6 +11,7 @@ import { Navbar } from "../../component/Navbar";
 import Checkout from "../Checkout/Checkout";
 import { ProductList } from "../Products/ProductList";
 import { Modal } from "../../component/Modal";
+import { Footer } from "../../component/Footer";
 
 //create your first component
 export function App() {
@@ -26,6 +27,7 @@ export function App() {
 				<Route component={Default} />
 			</Switch>
 			<Modal />
+			<Footer />
 		</React.Fragment>
 	);
 }
