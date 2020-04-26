@@ -11,9 +11,8 @@ export const Default = () => {
 					<h3>
 						the request url
 						<span className="text-danger">
-							{PaymentResponse.location.pathname}
-						</span>
-						{""}
+							{/*PaymentResponse.location.pathname*/}
+						</span>{" "}
 						was not found
 					</h3>
 				</div>
