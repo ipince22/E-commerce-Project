@@ -15,7 +15,7 @@ export const addCart = () => {
 					if (cart.length > 0) {
 						return (
 							<React.Fragment>
-								<h1 className="text-title text-uppercase text-muted mt-3 mb-2">
+								<h1 className="text-center text-title text-uppercase text-muted mt-3 mb-2">
 									your cart
 								</h1>
 								<CartColumns />
