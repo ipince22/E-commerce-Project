@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { CartItem } from "./CartItem";
 import PropTypes from "prop-types";
 
 export const CartList = props => {
-	const { cart } = props.cartObject;
-	//console.log("props.cartObject:", props.cartObject);
+	const { cart, addTotals } = props.cartObject;
+	//console.log("CartList=props.cartObject:", props.cartObject);
+	addTotals();
 
 	return (
 		<div className="container-fluid">

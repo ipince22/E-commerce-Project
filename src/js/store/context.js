@@ -50,10 +50,10 @@ export const ProductProvider = props => {
 		setProducts(tempProducts);
 		setCart(cart => [...cart, product]);
 
+		//let tempcart2 = [...cart];
+		//tempcart2.push(product);
+		//setCart([...tempcart2]);
 		addTotals();
-		//console.log("tempProducts", tempProducts);
-		//console.log("cart", cart);
-
 		return { products, cart };
 	};
 
@@ -68,7 +68,7 @@ export const ProductProvider = props => {
 		return modalOpen;
 	};
 	const increment = id => {
-		console.log("cart...", [...cart]);
+		//console.log("cart...", [...cart]);
 		let tempCart = [...cart];
 		const selectedProduct = tempCart.find(item => item.id === id);
 		const index = tempCart.indexOf(selectedProduct);
@@ -120,8 +120,9 @@ export const ProductProvider = props => {
 	};
 
 	const addTotals = () => {
+		let temp = [...cart];
 		let subTotal = 0;
-		cart.map(item => {
+		temp.map(item => {
 			subTotal += item.total;
 		});
 		const tempTax = subTotal * 0.1;
@@ -149,7 +150,8 @@ export const ProductProvider = props => {
 				clearCart,
 				cartSubtotal,
 				cartTax,
-				cartTotal
+				cartTotal,
+				addTotals
 			}}>
 			{props.children}
 		</ProductContext.Provider>
