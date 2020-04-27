@@ -15,9 +15,10 @@ export const Details = () => {
 					price,
 					company,
 					info,
-					inCart
+					inCart,
+					video
 				} = value.detailProduct;
-				//console.log("detalle producto:", value.detailProduct);
+				console.log("detalle producto:", video);
 				return (
 					<div className="container py-5">
 						{/*title */}
@@ -36,6 +37,16 @@ export const Details = () => {
 									className="img-fluid"
 									alt="product"
 								/>
+								<div className="video-container">
+									<iframe
+										width="100%"
+										height="315"
+										src={video}
+										frameBorder="0"
+										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen
+									/>
+								</div>
 							</div>
 							{/*Product text */}
 							<div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
