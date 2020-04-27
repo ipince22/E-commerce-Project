@@ -67,3 +67,5 @@ CartItem.propTypes = {
 	cartItem: PropTypes.array,
 	cartValue: PropTypes.array
 };
+
+//

@@ -47,10 +47,13 @@ export const Product = props => {
 				</ProductConsumer>
 				{/* card footer */}
 				<div className="card-footer d-flex justify-content-between">
-					<p className="align-self-center mb-0">{props.title}</p>
+					<p className="text-primary font-weight-normal">
+						{props.title}
+					</p>
 					<h5 className="text-blue font-italic mb-0">
-						<span className="mr-1">$</span>
-						{props.price}
+						<span className="badge badge-pill badge-success mr-1">
+							{"$ " + props.price}
+						</span>
 					</h5>
 				</div>
 			</div>

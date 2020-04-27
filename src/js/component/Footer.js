@@ -32,7 +32,7 @@ export const Footer = () => (
 			</ul>
 		</div>
 		<div>
-			<cite>
+			<p>
 				Shopping Cart 2020 Designed By{" "}
 				<a
 					className="text-white"
@@ -50,7 +50,7 @@ export const Footer = () => (
 					<i className="fab fa-github-alt" />
 					Yusbel
 				</a>
-			</cite>
+			</p>
 		</div>
 	</footer>
 );

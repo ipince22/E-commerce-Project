@@ -11,11 +11,15 @@ export const CartList = props => {
 		<div className="container-fluid">
 			{cart.map(item => {
 				return (
-					<CartItem
+					<div
 						key={item.id}
-						cartItem={item}
-						cartValue={props.cartObject}
-					/>
+						className=" list-group-item list-group-item-action">
+						<CartItem
+							key={item.id}
+							cartItem={item}
+							cartValue={props.cartObject}
+						/>
+					</div>
 				);
 			})}
 		</div>
