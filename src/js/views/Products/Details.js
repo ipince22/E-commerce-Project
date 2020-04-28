@@ -18,7 +18,7 @@ export const Details = () => {
 					inCart,
 					video
 				} = value.detailProduct;
-				console.log("detalle producto:", video);
+
 				return (
 					<div className="container py-5">
 						{/*title */}
