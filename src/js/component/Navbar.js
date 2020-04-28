@@ -6,17 +6,15 @@ import { ButtonContainer } from "./Button";
 
 export const Navbar = () => {
 	return (
-		<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
-			<Link to="/">
-				<img src={logo} alt="store" className="navbar-brand" />
-			</Link>
-			<ul className="navbar-nav align-items-center">
-				<li className="nav-item ml-5">
-					<Link to="/" className="nav-link">
+		<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
+			<Link to="/" className="ml-auto">
+				<ButtonContainer>
+					<span className="mr-2">
+						<i class="fas fa-mobile-alt" />
 						Products
-					</Link>
-				</li>
-			</ul>
+					</span>
+				</ButtonContainer>
+			</Link>
 
 			<Link to="/login" className="ml-auto">
 				<ButtonContainer>
