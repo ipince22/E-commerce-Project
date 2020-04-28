@@ -7,29 +7,53 @@ import { ButtonContainer } from "./Button";
 export const Navbar = () => {
 	return (
 		<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
-			<Link to="/" className="ml-auto">
-				<ButtonContainer>
-					<span className="mr-2">
-						<i class="fas fa-mobile-alt" />
-						Products
-					</span>
-				</ButtonContainer>
-			</Link>
-
-			<Link to="/login" className="ml-auto">
-				<ButtonContainer>
-					<span className="mr-2">Sign In / Register</span>
-				</ButtonContainer>
-			</Link>
-
-			<Link to="/cart" className="ml-auto">
-				<ButtonContainer>
-					<span className="mr-2">
-						<i className="fas fa-cart-plus" />
-						My Cart
-					</span>
-				</ButtonContainer>
-			</Link>
+			<div className="container-fluid">
+				<div className="navbar-header">
+					<Link to="/" className="navbar-brand" />
+				</div>
+				<ul className="nav navbar-nav">
+					<li className="active">
+						<Link to="/" className="ml-auto">
+							<ButtonContainer>
+								<span className="mr-2">
+									<i className="fas fa-mobile-alt" />
+									Products
+								</span>
+							</ButtonContainer>
+						</Link>
+					</li>
+					<li className="active">
+						<Link to="/cart" className="ml-auto">
+							<ButtonContainer>
+								<span className="mr-2">
+									<i className="fas fa-cart-plus" />
+									My Cart
+								</span>
+							</ButtonContainer>
+						</Link>
+					</li>
+				</ul>
+				<ul className="nav navbar-nav navbar-brand navbar-right">
+					<li>
+						<Link to="/login" className="ml-auto">
+							<ButtonContainer>
+								<span className="mr-2">
+									<i className="fas fa-user-plus" /> Sign Up
+								</span>
+							</ButtonContainer>
+						</Link>
+					</li>
+					<li>
+						<Link to="/login" className="ml-auto">
+							<ButtonContainer>
+								<span className="mr-2">
+									<i className="fas fa-sign-in-alt" /> Login
+								</span>
+							</ButtonContainer>
+						</Link>
+					</li>
+				</ul>
+			</div>
 		</NavWrapper>
 	);
 };
