@@ -12,7 +12,7 @@ export const ProductProvider = props => {
 	const [cartSubtotal, setcartSubtotal] = useState(0);
 	const [cartTax, setcartTax] = useState(0);
 	const [cartTotal, setcartTotal] = useState(0);
-
+	const [isSignedIn, setisSignedIn] = useState(false);
 	useEffect(() => {
 		getProducts();
 	}, []);
@@ -151,7 +151,9 @@ export const ProductProvider = props => {
 				cartSubtotal,
 				cartTax,
 				cartTotal,
-				addTotals
+				addTotals,
+				isSignedIn,
+				setisSignedIn
 			}}>
 			{props.children}
 		</ProductContext.Provider>
