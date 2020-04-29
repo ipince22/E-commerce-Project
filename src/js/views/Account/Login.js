@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth";
-import { Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { ProductConsumer } from "../../store/context";
 
 import "./login.css";
 
 firebase.initializeApp({
 	apiKey: "AIzaSyDYjRvEqgMaXVVyUguFXsrpbp4Pet4G_uE",
-	authDomain: "e-commerce-c4b91.firebaseapp.com"
+	authDomain: "authDomain=e-commerce-c4b91.firebaseapp.com"
 });
 
-class Login extends Component {
-	state = { isSignedIn: false };
+class Login extends React.Component {
+	// state = { isSignedIn: false };
+
 	uiConfig = {
 		signInFlow: "popup",
 		signInOptions: [
@@ -30,23 +31,35 @@ class Login extends Component {
 			this.setState({ isSignedIn: !!user });
 		});
 	};
+
 	render() {
 		return (
-			<div className="login-form">
-				{this.state.isSignedIn ? (
-					<span>
-						<Redirect to="/" />
-						<button onClick={() => firebase.auth().signOut()}>
-							Sign Out!
-						</button>
-					</span>
-				) : (
-					<StyledFirebaseAuth
-						uiConfig={this.uiConfig}
-						firebaseAuth={firebase.auth()}
-					/>
-				)}
-			</div>
+			<ProductConsumer>
+				{value => {
+					const { isSignedIn } = value;
+
+					return (
+						<div className="login-form">
+							{isSignedIn ? (
+								<span>
+									<h1>Hola</h1>
+									<button
+										onClick={() =>
+											firebase.auth().signOut()
+										}>
+										Sign Out!
+									</button>
+								</span>
+							) : (
+								<StyledFirebaseAuth
+									uiConfig={this.uiConfig}
+									firebaseAuth={firebase.auth()}
+								/>
+							)}
+						</div>
+					);
+				}}
+			</ProductConsumer>
 		);
 	}
 }
