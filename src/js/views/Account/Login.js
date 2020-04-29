@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth";
 import { Redirect } from "react-router";
+import { ProductConsumer } from "../../store/context";
+
 import "./login.css";
 
 firebase.initializeApp({
