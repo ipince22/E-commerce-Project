@@ -33,7 +33,12 @@ export const CartTotals = props => {
 							<span className="text-title">Total:</span>
 							<strong>$ {cartTotal}</strong>
 						</h5>
+
 						<PaypalButton total={cartTotal} clearCart={clearCart} />
+
+						<br />
+						<br />
+						<br />
 					</div>
 				</div>
 			</div>

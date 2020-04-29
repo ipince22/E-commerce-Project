@@ -4,7 +4,7 @@ export const storeProducts = [
 		title: "Galaxy S10 Lite (64GB)",
 		img: "https://i.imgur.com/r7BkgqL.png",
 
-		price: 490,
+		price: 10,
 		company: "SAMSUNG",
 		info:
 			"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -17,7 +17,7 @@ export const storeProducts = [
 		id: 2,
 		title: "Samsung Galaxy S20 5G",
 		img: "https://i.imgur.com/XoRnSGT.png",
-		price: 690,
+		price: 390,
 		company: "SAMSUNG",
 		info:
 			"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
