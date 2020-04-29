@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import PaypalButton from "../Paypal/PaypalButton";
+import { PaypalButton } from "../Paypal/PaypalButton";
 
 export const CartTotals = props => {
 	const { cartSubtotal, cartTax, cartTotal, clearCart } = props.totalObject;
@@ -34,7 +34,11 @@ export const CartTotals = props => {
 							<strong>$ {cartTotal}</strong>
 						</h5>
 
-						<PaypalButton total={cartTotal} clearCart={clearCart} />
+						<PaypalButton
+							total={cartTotal}
+							clearCart={clearCart}
+							history={props.history}
+						/>
 
 						<br />
 						<br />
@@ -47,5 +51,6 @@ export const CartTotals = props => {
 };
 
 CartTotals.propTypes = {
-	totalObject: PropTypes.array
+	totalObject: PropTypes.array,
+	history: PropTypes.object
 };

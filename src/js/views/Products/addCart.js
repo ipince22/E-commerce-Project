@@ -4,8 +4,9 @@ import { CartEmpty } from "../../component/CartEmpty";
 import { ProductConsumer } from "../../store/context";
 import { CartList } from "./CartList";
 import { CartTotals } from "./CartTotals";
+import PropTypes from "prop-types";
 
-export const addCart = () => {
+export const addCart = props => {
 	return (
 		<section>
 			<ProductConsumer>
@@ -20,7 +21,10 @@ export const addCart = () => {
 								</h1>
 								<CartColumns />
 								<CartList cartObject={value} />
-								<CartTotals totalObject={value} />
+								<CartTotals
+									totalObject={value}
+									history={props.history}
+								/>
 							</React.Fragment>
 						);
 					} else {
@@ -30,4 +34,8 @@ export const addCart = () => {
 			</ProductConsumer>
 		</section>
 	);
+};
+
+addCart.propTypes = {
+	history: PropTypes.object
 };
