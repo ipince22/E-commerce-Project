@@ -3,58 +3,77 @@ import { Link } from "react-router-dom";
 import logo from "../../img/icons8-iphone-24.png";
 import styled from "styled-components";
 import { ButtonContainer } from "./Button";
+import { ProductConsumer } from "../store/context";
 
 export const Navbar = () => {
 	return (
-		<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
-			<div className="container-fluid">
-				<div className="navbar-header">
-					<Link to="/" className="navbar-brand" />
-				</div>
-				<ul className="nav navbar-nav">
-					<li className="active">
-						<Link to="/" className="ml-auto">
-							<ButtonContainer>
-								<span className="mr-2">
-									<i className="fas fa-mobile-alt" />
-									Products
-								</span>
-							</ButtonContainer>
-						</Link>
-					</li>
-					<li className="active">
-						<Link to="/cart" className="ml-auto">
-							<ButtonContainer>
-								<span className="mr-2">
-									<i className="fas fa-cart-plus" />
-									My Cart
-								</span>
-							</ButtonContainer>
-						</Link>
-					</li>
-				</ul>
-				<ul className="nav navbar-nav navbar-brand navbar-right">
-					<li>
-						<Link to="/login" className="ml-auto">
-							<ButtonContainer>
-								<span className="mr-2">
-									<i className="fas fa-user-plus" /> Sign Up
-								</span>
-							</ButtonContainer>
-						</Link>
-					</li>
-					<li>
-						<Link to="/login" className="ml-auto">
-							<ButtonContainer>
-								<span className="mr-2">
-									<i className="fas fa-sign-in-alt" /> Login
-								</span>
-							</ButtonContainer>
-						</Link>
-					</li>
-				</ul>
-			</div>
-		</NavWrapper>
+		<ProductConsumer>
+			{value => {
+				const { isSignedIn } = value;
+				return (
+					<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
+						<div className="container-fluid">
+							<div className="navbar-header">
+								<Link to="/" className="navbar-brand" />
+							</div>
+							<ul className="nav navbar-nav">
+								<li className="active">
+									<Link to="/" className="ml-auto">
+										<ButtonContainer>
+											<span className="mr-2">
+												<i className="fas fa-mobile-alt" />
+												Products
+											</span>
+										</ButtonContainer>
+									</Link>
+								</li>
+								<li className="active">
+									<Link to="/cart" className="ml-auto">
+										<ButtonContainer>
+											<span className="mr-2">
+												<i className="fas fa-cart-plus" />
+												My Cart
+											</span>
+										</ButtonContainer>
+									</Link>
+								</li>
+							</ul>
+							<ul className="nav navbar-nav navbar-brand navbar-right">
+								<li>
+									<Link to="/login" className="ml-auto">
+										<ButtonContainer>
+											<span className="mr-2">
+												<i className="fas fa-user-plus" />{" "}
+												Sign Up
+											</span>
+										</ButtonContainer>
+									</Link>
+								</li>
+								<li>
+									{!isSignedIn ? (
+										<Link to="/login" className="ml-auto">
+											<ButtonContainer>
+												<span className="mr-2">
+													<i className="fas fa-sign-in-alt" />{" "}
+													Login
+												</span>
+											</ButtonContainer>
+										</Link>
+									) : (
+										<ButtonContainer>
+											<span className="mr-2">
+												<i className="fas fa-sign-in-alt" />{" "}
+												Logout
+											</span>
+										</ButtonContainer>
+									)}
+								</li>
+							</ul>
+						</div>
+					</NavWrapper>
+				);
+			}}
+		</ProductConsumer>
 	);
 };
 
