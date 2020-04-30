@@ -13,7 +13,8 @@ export const Modal = () => {
 			{value => {
 				const { modalOpen, closeModal } = value;
 				//setmodalOpen(true);
-				//const { img, title, price } = value.Modal; //img
+				const { id, img, title, price } = value.Modal; //img
+				console.log("modal", value);
 				if (!modalOpen) {
 					return null;
 				} else {
@@ -24,15 +25,17 @@ export const Modal = () => {
 									<div
 										id="modal"
 										className="col-8 mx-auto col-md-6 col-lg-6 col-lg-4 text-center text-capitalize">
-										<h5>Item added to the cart</h5>
+										<h5 className="text-primary">
+											{title}
+										</h5>
 										<img
-											src={"imagen"}
+											src={img}
 											className="img-fluid"
 											alt="product"
 										/>
-										<h5>{"title"}</h5>
+
 										<h5 className="text-muted">
-											price : ${"price"}
+											price : ${price}
 										</h5>
 										<Link to="/">
 											<ButtonContainer
@@ -46,6 +49,7 @@ export const Modal = () => {
 											<ButtonContainer
 												cart
 												onClick={() => {
+													value.addToCart(id); //04.29 daniel
 													closeModal();
 												}}>
 												go to cart
@@ -63,16 +67,16 @@ export const Modal = () => {
 };
 
 const ModalContainer = styled.div`
-position :fixed;
-top:0;
-left:0;
-right:0;
-bottom;
-background:rgba(0,0,0,0.3);
-display:flex;
-align-items:center;
-justify-content:center;
-#modal{
-    background:#f3f3f3;
-}
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	#modal {
+		background: #f3f3f3;
+	}
 `;

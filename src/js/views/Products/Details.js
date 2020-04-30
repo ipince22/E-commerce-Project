@@ -78,7 +78,7 @@ export const Details = () => {
 										cart
 										disabled={inCart ? true : false}
 										onClick={() => {
-											value.addToCart(id);
+											//value.addToCart(id);//04-29 DIQ
 											value.openModal(id);
 										}}>
 										{inCart ? "in Cart" : "Add to cart"}

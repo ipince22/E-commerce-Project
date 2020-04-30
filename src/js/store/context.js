@@ -137,6 +137,8 @@ export const ProductProvider = props => {
 	return (
 		<ProductContext.Provider
 			value={{
+				modalOpen,
+				Modal,
 				cart,
 				products,
 				detailProduct,
