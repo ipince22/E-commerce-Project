@@ -14,7 +14,7 @@ export const Modal = () => {
 				const { modalOpen, closeModal } = value;
 				//setmodalOpen(true);
 				const { id, img, title, price } = value.Modal; //img
-				console.log("modal", value);
+				//console.log("modal", value);
 				if (!modalOpen) {
 					return null;
 				} else {

@@ -21,6 +21,10 @@ body{
 .text-bright{
     color:var(--lightBlue);
 }
+.text-logo{
+    font-family: 'Permanent Marker', cursive;
+     color:var(--mainWhite)
+}
 
 .btn-black{
     background: transparent;
