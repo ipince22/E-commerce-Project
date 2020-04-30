@@ -13,7 +13,7 @@ export const Navbar = () => {
 				return (
 					<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
 						<div className="container-fluid">
-							<div>
+							<div className="navbar-brand">
 								<h1 className="text-logo">Tech Store</h1>
 							</div>
 							<ul className="nav navbar-nav">
