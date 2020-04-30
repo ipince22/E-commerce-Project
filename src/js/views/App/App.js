@@ -8,7 +8,6 @@ import { Default } from "../Others/Default";
 import Login from "../Account/Login";
 import { Details } from "../Products/Details";
 import { Navbar } from "../../component/Navbar";
-import Checkout from "../Checkout/Checkout";
 import { ProductList } from "../Products/ProductList";
 import { Modal } from "../../component/Modal";
 import { Footer } from "../../component/Footer";
@@ -22,7 +21,6 @@ export function App() {
 				<Route exact path="/" component={ProductList} />
 				<Route path="/details" component={Details} />
 				<Route path="/cart" component={addCart} />
-				<Route path="/checkout" component={Checkout} />
 				<Route path="/login" component={Login} />
 				<Route component={Default} />
 			</Switch>

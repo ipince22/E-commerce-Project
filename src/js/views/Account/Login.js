@@ -8,7 +8,7 @@ import "./login.css";
 
 firebase.initializeApp({
 	apiKey: "AIzaSyDYjRvEqgMaXVVyUguFXsrpbp4Pet4G_uE",
-	authDomain: "authDomain=e-commerce-c4b91.firebaseapp.com"
+	authDomain: "e-commerce-c4b91.firebaseapp.com"
 });
 
 class Login extends React.Component {
