@@ -27,7 +27,6 @@ class Login extends React.Component {
 			const { isSignedIn, setisSignedIn } = this.context;
 			if (user && !isSignedIn) {
 				setisSignedIn(true);
-				this.props.history.goBack();
 			}
 		});
 	};
@@ -42,16 +41,7 @@ class Login extends React.Component {
 					return (
 						<div className="login-form">
 							{isSignedIn ? (
-								<span>
-									<h1>Hola</h1>
-									{/* <button
-										onClick={() => {
-											setisSignedIn(false);
-											firebase.auth().signOut();
-										}}>
-										Sign Out!
-									</button> */}
-								</span>
+								this.props.history.goBack()
 							) : (
 								<StyledFirebaseAuth
 									uiConfig={this.uiConfig}
