@@ -1,6 +1,7 @@
 import React from "react";
 import PaypalExpressBtn from "react-paypal-express-checkout";
 import PropTypes from "prop-types";
+import { Payment } from "./Payment";
 
 export const PaypalButton = props => {
 	//export default class PaypalButton extends React.Component {
@@ -8,9 +9,9 @@ export const PaypalButton = props => {
 	const onSuccess = payment => {
 		// Congratulation, it came here means everything's fine!
 		console.log("The payment was succeeded!", payment);
-
+		<Payment payment={props.payment} msg={"onsucces-->"} />;
 		props.clearCart();
-		props.history.push("/");
+		props.history.push("/payment");
 		// You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
 	};
 
@@ -61,5 +62,7 @@ export const PaypalButton = props => {
 PaypalButton.propTypes = {
 	total: PropTypes.number,
 	history: PropTypes.object,
-	clearCart: PropTypes.func
+	clearCart: PropTypes.func,
+	payment: PropTypes.object,
+	msg: PropTypes.string
 };
