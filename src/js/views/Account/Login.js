@@ -3,7 +3,7 @@ import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth";
 import { Redirect, useHistory } from "react-router";
 import { ProductConsumer } from "../../store/context";
-
+import PropTypes from "prop-types";
 import "./login.css";
 
 firebase.initializeApp({
@@ -12,13 +12,6 @@ firebase.initializeApp({
 });
 
 class Login extends React.Component {
-    // state = { user: false };
-    const history = useHistory();
-
-    function goBackHandler() {
-        history.goBack();
-    }
-
 	uiConfig = {
 		signInFlow: "popup",
 		signInOptions: [
@@ -26,12 +19,16 @@ class Login extends React.Component {
 			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 			firebase.auth.EmailAuthProvider.PROVIDER_ID
 		],
-		signInSuccessUrl: "/"
+		signInSuccessUrl: false
 	};
-
 	componentDidMount = () => {
+		console.log("context", this.context);
 		firebase.auth().onAuthStateChanged(user => {
-			user && this.context.setisSignedIn(true);
+			const { isSignedIn, setisSignedIn } = this.context;
+			if (user && !isSignedIn) {
+				setisSignedIn(true);
+				this.props.history.push("/");
+			}
 		});
 	};
 
@@ -45,18 +42,17 @@ class Login extends React.Component {
 					return (
 						<div className="login-form">
 							{isSignedIn ? (
-                                this.goBackHandler()
-								// <span>
-								// 	<h1>Hola</h1>
-								// 	<button
-								// 		onClick={() => {
-								// 			setisSignedIn(false);
-								// 			this.setState({ user: false });
-								// 			firebase.auth().signOut();
-								// 		}}>
-								// 		Sign Out!
-								// 	</button>
-								// </span>
+								// this.goBackHandler()
+								<span>
+									<h1>Hola</h1>
+									<button
+										onClick={() => {
+											setisSignedIn(false);
+											firebase.auth().signOut();
+										}}>
+										Sign Out!
+									</button>
+								</span>
 							) : (
 								<StyledFirebaseAuth
 									uiConfig={this.uiConfig}
@@ -70,6 +66,10 @@ class Login extends React.Component {
 		);
 	}
 }
-
 Login.contextType = ProductConsumer;
+
+Login.propTypes = {
+	history: PropTypes.object
+};
+
 export default Login;

@@ -10,8 +10,8 @@ export const Navbar = () => {
 	return (
 		<ProductConsumer>
 			{value => {
-				const { isSignedIn } = value;
-				console.log("signedIn", isSignedIn);
+				const { isSignedIn, setisSignedIn } = value;
+
 				return (
 					<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
 						<div className="container-fluid">
@@ -66,7 +66,11 @@ export const Navbar = () => {
 											onClick={() =>
 												firebase.auth().signOut()
 											}>
-											<span className="mr-2">
+											<span
+												className="mr-2"
+												onClick={() =>
+													setisSignedIn(false)
+												}>
 												<i className="fas fa-sign-in-alt" />{" "}
 												Logout
 											</span>
