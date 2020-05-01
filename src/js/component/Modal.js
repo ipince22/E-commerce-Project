@@ -13,7 +13,7 @@ export const Modal = () => {
 			{value => {
 				const { modalOpen, closeModal } = value;
 				//setmodalOpen(true);
-				const { id, img, title, price } = value.Modal; //img
+				const { img, title, price } = value.Modal; //img
 				//console.log("modal", value);
 				if (!modalOpen) {
 					return null;
@@ -25,15 +25,17 @@ export const Modal = () => {
 									<div
 										id="modal"
 										className="col-8 mx-auto col-md-6 col-lg-6 col-lg-4 text-center text-capitalize">
-										<h5 className="text-primary">
-											{title}
+										<h5 className="text-success">
+											{"Item Added To Cart"}
 										</h5>
 										<img
 											src={img}
 											className="img-fluid"
 											alt="product"
 										/>
-
+										<h5 className="text-muted">
+											Product : {title}
+										</h5>
 										<h5 className="text-muted">
 											price : ${price}
 										</h5>
@@ -49,7 +51,7 @@ export const Modal = () => {
 											<ButtonContainer
 												cart
 												onClick={() => {
-													value.addToCart(id); //04.29 daniel
+													//value.addToCart(id); //04.29 daniel
 													closeModal();
 												}}>
 												go to cart

@@ -11,6 +11,7 @@ import { Navbar } from "../../component/Navbar";
 import { ProductList } from "../Products/ProductList";
 import { Modal } from "../../component/Modal";
 import { Footer } from "../../component/Footer";
+import { Payment } from "../Paypal/Payment";
 
 //create your first component
 export function App() {
@@ -22,6 +23,7 @@ export function App() {
 				<Route path="/details" component={Details} />
 				<Route path="/cart" component={addCart} />
 				<Route path="/login" component={Login} />
+				<Route path="/payment" component={Payment} />
 				<Route component={Default} />
 			</Switch>
 			<Modal />
