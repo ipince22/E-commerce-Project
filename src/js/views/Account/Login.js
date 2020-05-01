@@ -12,7 +12,12 @@ firebase.initializeApp({
 });
 
 class Login extends React.Component {
-	// state = { isSignedIn: false };
+    // state = { user: false };
+    const history = useHistory();
+
+    function goBackHandler() {
+        history.goBack();
+    }
 
 	uiConfig = {
 		signInFlow: "popup",
@@ -21,14 +26,12 @@ class Login extends React.Component {
 			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 			firebase.auth.EmailAuthProvider.PROVIDER_ID
 		],
-		callbacks: {
-			signInsusses: () => false
-		}
+		signInSuccessUrl: "/"
 	};
 
 	componentDidMount = () => {
 		firebase.auth().onAuthStateChanged(user => {
-			this.setState({ isSignedIn: !!user });
+			user && this.context.setisSignedIn(true);
 		});
 	};
 
@@ -36,20 +39,24 @@ class Login extends React.Component {
 		return (
 			<ProductConsumer>
 				{value => {
-					const { isSignedIn } = value;
+					const { isSignedIn, setisSignedIn } = value;
+					// this.state.user && !isSignedIn && setisSignedIn(true);
 
 					return (
 						<div className="login-form">
 							{isSignedIn ? (
-								<span>
-									<h1>Hola</h1>
-									<button
-										onClick={() =>
-											firebase.auth().signOut()
-										}>
-										Sign Out!
-									</button>
-								</span>
+                                this.goBackHandler()
+								// <span>
+								// 	<h1>Hola</h1>
+								// 	<button
+								// 		onClick={() => {
+								// 			setisSignedIn(false);
+								// 			this.setState({ user: false });
+								// 			firebase.auth().signOut();
+								// 		}}>
+								// 		Sign Out!
+								// 	</button>
+								// </span>
 							) : (
 								<StyledFirebaseAuth
 									uiConfig={this.uiConfig}
@@ -64,4 +71,5 @@ class Login extends React.Component {
 	}
 }
 
+Login.contextType = ProductConsumer;
 export default Login;

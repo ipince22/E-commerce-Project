@@ -4,12 +4,14 @@ import logo from "../../img/icons8-iphone-24.png";
 import styled from "styled-components";
 import { ButtonContainer } from "./Button";
 import { ProductConsumer } from "../store/context";
+import firebase from "firebase";
 
 export const Navbar = () => {
 	return (
 		<ProductConsumer>
 			{value => {
 				const { isSignedIn } = value;
+				console.log("signedIn", isSignedIn);
 				return (
 					<NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 text-right">
 						<div className="container-fluid">
@@ -60,7 +62,10 @@ export const Navbar = () => {
 											</ButtonContainer>
 										</Link>
 									) : (
-										<ButtonContainer>
+										<ButtonContainer
+											onClick={() =>
+												firebase.auth().signOut()
+											}>
 											<span className="mr-2">
 												<i className="fas fa-sign-in-alt" />{" "}
 												Logout
